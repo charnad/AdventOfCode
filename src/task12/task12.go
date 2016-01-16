@@ -1,10 +1,10 @@
 package task12
 
 import (
-	"fmt"
-	"regexp"
-	"os"
 	"bufio"
+	"fmt"
+	"os"
+	"regexp"
 	"strconv"
 )
 

@@ -1,10 +1,9 @@
 package task1
 
 import (
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 )
-
 
 func Solve() {
 	data, err := ioutil.ReadFile("res/task1.txt")
@@ -17,8 +16,10 @@ func Solve() {
 	for _, symbol := range data {
 		fmt.Println(floor)
 		switch string(symbol) {
-		case ")": floor -= 1
-		case "(": floor += 1
+		case ")":
+			floor -= 1
+		case "(":
+			floor += 1
 		}
 	}
 

@@ -1,8 +1,8 @@
 package task5
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 	"strings"
 )
@@ -14,27 +14,28 @@ func isNice(s string) bool {
 
 	for _, s := range strings.Split(s, "") {
 		switch s {
-			case "a", "e", "i", "o", "u": vowels+=1
+		case "a", "e", "i", "o", "u":
+			vowels += 1
 
-			case "b":
-				if previous == "a" {
-					return false
-				}
+		case "b":
+			if previous == "a" {
+				return false
+			}
 
-			case "d":
-				if previous == "c" {
-					return false
-				}
+		case "d":
+			if previous == "c" {
+				return false
+			}
 
-			case "q":
-				if previous == "p" {
-					return false
-				}
+		case "q":
+			if previous == "p" {
+				return false
+			}
 
-			case "y":
-				if previous == "x" {
-					return false
-				}
+		case "y":
+			if previous == "x" {
+				return false
+			}
 		}
 		if previous == s {
 			hasTwice = true
@@ -48,12 +49,12 @@ func isNice(s string) bool {
 func isNice2(s string) bool {
 	hasRepeated := false
 	hasTwoPairs := false
-	for i:=0; i < len(s); i++ {
+	for i := 0; i < len(s); i++ {
 		if i > 1 && s[i] == s[i-2] {
 			hasRepeated = true
 		}
 
-		for j := 0; j < i - 2; j++ {
+		for j := 0; j < i-2; j++ {
 			if s[j:j+2] == s[i-1:i+1] {
 				hasTwoPairs = true
 			}
@@ -79,7 +80,7 @@ func Solve() {
 		if isNice(scanner.Text()) {
 			nice++
 		}
-		if (isNice2(scanner.Text())) {
+		if isNice2(scanner.Text()) {
 			nice2++
 		}
 	}

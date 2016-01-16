@@ -2,17 +2,17 @@ package task7
 
 import (
 	"bufio"
-	"os"
-	"strings"
-	"strconv"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
 type wire struct {
-	lefts  string // left value source
-	left   uint16 // left int value
+	lefts string // left value source
+	left  uint16 // left int value
 
-	op     string // operation
+	op string // operation
 
 	rights string // right value source
 	right  uint16 // right int value
@@ -26,7 +26,7 @@ func getSignal(wires map[string]wire, name string) uint16 {
 	wire := wires[name]
 	var left, right, result uint16 = 0, 0, 0
 
-	if (wire.lefts != "") {
+	if wire.lefts != "" {
 		left = getSignal(wires, wire.lefts)
 		wire.left = left
 		wire.lefts = ""
@@ -34,7 +34,7 @@ func getSignal(wires map[string]wire, name string) uint16 {
 		left = wire.left
 	}
 
-	if (wire.rights != "") {
+	if wire.rights != "" {
 		right = getSignal(wires, wire.rights)
 		wire.right = right
 		wire.rights = ""
@@ -83,42 +83,42 @@ func fromString(s string) (string, wire) {
 	w := wire{}
 
 	switch len(operands) {
-		case 3:
-			if isIntString(operands[0]) {
-				w.lefts = ""
-				w.left = strToUint16(operands[0])
-			} else {
-				w.lefts = operands[0]
-				w.left = 0
-			}
-			w.op   = operands[1]
-			if isIntString(operands[2]) {
-				w.rights = ""
-				w.right = strToUint16(operands[2])
-			} else {
-				w.rights = operands[2]
-				w.right = 0
-			}
+	case 3:
+		if isIntString(operands[0]) {
+			w.lefts = ""
+			w.left = strToUint16(operands[0])
+		} else {
+			w.lefts = operands[0]
+			w.left = 0
+		}
+		w.op = operands[1]
+		if isIntString(operands[2]) {
+			w.rights = ""
+			w.right = strToUint16(operands[2])
+		} else {
+			w.rights = operands[2]
+			w.right = 0
+		}
 
-		case 2:
-			if isIntString(operands[1]) {
-				w.lefts = ""
-				w.left = strToUint16(operands[1])
-			} else {
-				w.lefts = operands[1]
-				w.left = 0
-			}
-			w.op = operands[0]
+	case 2:
+		if isIntString(operands[1]) {
+			w.lefts = ""
+			w.left = strToUint16(operands[1])
+		} else {
+			w.lefts = operands[1]
+			w.left = 0
+		}
+		w.op = operands[0]
 
-		case 1:
-			if i, err := strconv.Atoi(operands[0]); err == nil {
-				w.left = uint16(i)
-				w.lefts = ""
-			} else {
-				w.lefts = operands[0]
-				w.left = 0
-			}
-			w.op = "NOP"
+	case 1:
+		if i, err := strconv.Atoi(operands[0]); err == nil {
+			w.left = uint16(i)
+			w.lefts = ""
+		} else {
+			w.lefts = operands[0]
+			w.left = 0
+		}
+		w.op = "NOP"
 	}
 
 	return parts[1], w
@@ -140,7 +140,7 @@ func Solve() {
 		wires[name] = w
 	}
 
-//	fmt.Println(getSignal(wires, "a"))
+	//	fmt.Println(getSignal(wires, "a"))
 
 	wireb := wires["b"]
 	wireb.left = 16076

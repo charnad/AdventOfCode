@@ -3,8 +3,8 @@ package task8
 import (
 	"bufio"
 	"os"
-//	"strings"
-//	"strconv"
+	//	"strings"
+	//	"strconv"
 	"fmt"
 	"regexp"
 	"strings"
@@ -52,6 +52,6 @@ func Solve() {
 		fmt.Println(extendedLine, "is", len(extendedLine), "long")
 	}
 
-	fmt.Println("Total characters ", totalChars, "total data", totalData, "Difference: ", totalChars - totalData)
-	fmt.Println("Total characters ", totalChars, "total extended", totalExtended, "Difference: ", totalExtended - totalChars)
+	fmt.Println("Total characters ", totalChars, "total data", totalData, "Difference: ", totalChars-totalData)
+	fmt.Println("Total characters ", totalChars, "total extended", totalExtended, "Difference: ", totalExtended-totalChars)
 }

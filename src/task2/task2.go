@@ -1,13 +1,12 @@
 package task2
 
 import (
-	"os"
 	"bufio"
+	"fmt"
+	"os"
 	"strconv"
 	"strings"
-	"fmt"
 )
-
 
 type Box struct {
 	width  int
@@ -37,31 +36,31 @@ func (b Box) smallestSides() (int, int) {
 
 func (b Box) wrappingPaper() int {
 	sideA, sideB := b.smallestSides()
-	return 2 * b.width * b.height + 2 * b.width * b.depth + 2 * b.height * b.depth + sideA * sideB
+	return 2*b.width*b.height + 2*b.width*b.depth + 2*b.height*b.depth + sideA*sideB
 }
 
-func (b Box) ribbon() int  {
+func (b Box) ribbon() int {
 	sideA, sideB := b.smallestSides()
-	return sideA * 2 + sideB * 2 + b.height * b.width * b.depth
+	return sideA*2 + sideB*2 + b.height*b.width*b.depth
 }
 
 func fromString(str string) Box {
 	b := Box{}
 
-	var dimensions []int;
+	var dimensions []int
 	for _, i := range strings.Split(str, "x") {
 		dim, _ := strconv.Atoi(i)
 		dimensions = append(dimensions, dim)
 	}
 
 	b.height = dimensions[0]
-	b.width  = dimensions[1]
-	b.depth  = dimensions[2]
+	b.width = dimensions[1]
+	b.depth = dimensions[2]
 
 	return b
 }
 
-func Solve()  {
+func Solve() {
 	totalPaper := 0
 	totalRibbon := 0
 

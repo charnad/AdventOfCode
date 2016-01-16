@@ -1,8 +1,8 @@
 package task4
 
 import (
-	"fmt"
 	"crypto/md5"
+	"fmt"
 	"strconv"
 )
 
@@ -19,11 +19,11 @@ func Solve() {
 		i++
 		md5.Reset()
 
-		if (hash[0:5] == "00000") {
+		if hash[0:5] == "00000" {
 			fmt.Println("Five zeroes", string(data), hash)
 		}
 
-		if (hash[0:6] == "000000") {
+		if hash[0:6] == "000000" {
 			fmt.Println("Six zeroes", string(data), hash)
 			return
 		}

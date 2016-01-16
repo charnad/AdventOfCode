@@ -23,13 +23,13 @@ func Solve() {
 	for _, symbol := range data {
 		switch string(symbol) {
 		case "^":
-			cy+=1
+			cy += 1
 		case "v":
-			cy-=1
+			cy -= 1
 		case "<":
-			cx-=1
+			cx -= 1
 		case ">":
-			cx+=1
+			cx += 1
 		}
 
 		if houses[cx] == nil {

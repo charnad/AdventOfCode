@@ -1,9 +1,9 @@
 package task13
 
 import (
+	"bufio"
 	"fmt"
 	"os"
-	"bufio"
 	"strconv"
 	"strings"
 )
@@ -55,8 +55,8 @@ func calculateTotalChange(seatings [][]string, changes map[string]int) int {
 	for _, permutation := range seatings {
 		permutation = append(permutation, permutation[0])
 		total = 0
-		for i := 0; i < len(permutation) - 1; i++ {
-			total += changes[permutation[i] + permutation[i+1]] + changes[permutation[i+1] + permutation[i]]
+		for i := 0; i < len(permutation)-1; i++ {
+			total += changes[permutation[i]+permutation[i+1]] + changes[permutation[i+1]+permutation[i]]
 		}
 
 		if total > max {
@@ -84,13 +84,13 @@ func Solve() {
 		person1 := parts[0]
 		person2 := parts[10]
 		change, _ := strconv.Atoi(parts[3])
-		if (parts[2] == "lose") {
+		if parts[2] == "lose" {
 			change *= -1
 		}
 		if !inSlice(person1, persons) {
 			persons = append(persons, person1)
 		}
-		changes[person1 + person2] = change
+		changes[person1+person2] = change
 	}
 
 	fmt.Println("Total change", calculateTotalChange(permutations(persons), changes))

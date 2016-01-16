@@ -1,11 +1,11 @@
 package task6
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 type lights struct {
@@ -23,7 +23,7 @@ func (l *lights) turnOn(x1, y1, x2, y2 int) {
 func (l *lights) turnOff(x1, y1, x2, y2 int) {
 	for x := x1; x <= x2; x++ {
 		for y := y1; y <= y2; y++ {
-			if (l.lights[x][y] > 0) {
+			if l.lights[x][y] > 0 {
 				l.lights[x][y]--
 			}
 		}
@@ -33,7 +33,7 @@ func (l *lights) turnOff(x1, y1, x2, y2 int) {
 func (l *lights) toggle(x1, y1, x2, y2 int) {
 	for x := x1; x <= x2; x++ {
 		for y := y1; y <= y2; y++ {
-			l.lights[x][y]+=2
+			l.lights[x][y] += 2
 		}
 	}
 }
@@ -42,7 +42,7 @@ func (l *lights) countOn() int {
 	count := 0
 	for x := 0; x < 1000; x++ {
 		for y := 0; y < 1000; y++ {
-			if (l.lights[x][y] > 0) {
+			if l.lights[x][y] > 0 {
 				count++
 			}
 		}
@@ -84,12 +84,12 @@ func Solve() {
 		y2, _ := strconv.Atoi(coords[1])
 
 		switch commands[0] {
-			case "e":
-				l.toggle(x1, y1, x2, y2)
-			case "off":
-				l.turnOff(x1, y1, x2, y2)
-			case "on":
-				l.turnOn(x1, y1, x2, y2)
+		case "e":
+			l.toggle(x1, y1, x2, y2)
+		case "off":
+			l.turnOff(x1, y1, x2, y2)
+		case "on":
+			l.turnOn(x1, y1, x2, y2)
 		}
 	}
 

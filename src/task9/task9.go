@@ -2,11 +2,11 @@ package task9
 
 import (
 	"bufio"
-	"os"
-	"strconv"
 	"fmt"
-	"strings"
+	"os"
 	"sort"
+	"strconv"
+	"strings"
 )
 
 func inSlice(value string, slice []string) bool {
@@ -27,7 +27,7 @@ func findRoute(path []string, routes map[string]map[string]int, totalDistance in
 	results := map[string]int{}
 
 	if len(path) == 0 {
-		for start, _:= range routes {
+		for start, _ := range routes {
 			found := findRoute(append(cloneSlice(path), start), routes, 0)
 			for k, v := range found {
 				results[k] = v
@@ -40,7 +40,7 @@ func findRoute(path []string, routes map[string]map[string]int, totalDistance in
 	source := path[len(path)-1]
 	for dest, dist := range routes[source] {
 		if !inSlice(dest, path) {
-			for k, v := range findRoute(append(cloneSlice(path), dest), routes, totalDistance + dist) {
+			for k, v := range findRoute(append(cloneSlice(path), dest), routes, totalDistance+dist) {
 				results[k] = v
 			}
 		}
@@ -62,7 +62,7 @@ func Solve() {
 
 	defer file.Close()
 
-	routes := map[string]map[string]int{};
+	routes := map[string]map[string]int{}
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {

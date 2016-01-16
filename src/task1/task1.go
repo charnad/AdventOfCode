@@ -11,17 +11,21 @@ func Solve() {
 		panic(err)
 	}
 
-	var floor int16 = 0
+	floor := 0
+	position := 0
 
-	for _, symbol := range data {
-		fmt.Println(floor)
+	for key, symbol := range data {
 		switch string(symbol) {
 		case ")":
 			floor -= 1
 		case "(":
 			floor += 1
 		}
+
+		if floor < 0 && position == 0 {
+			position = key + 1
+		}
 	}
 
-	fmt.Println("Floor: ", floor)
+	fmt.Println("Floor:", floor, ". Went underground at", position)
 }

@@ -11,7 +11,7 @@ import (
  * Candy: capacity 0, durability -1, flavor 0, texture 5, calories 8
  */
 
-type ingridient struct {
+type ingredient struct {
 	capacity   int
 	durability int
 	flavor     int
@@ -19,10 +19,10 @@ type ingridient struct {
 	calories   int
 }
 
-var sprinkles ingridient = ingridient{2, 0, -2, 0, 3}
-var butterscotch ingridient = ingridient{0, 5, -3, 0, 3}
-var chocolate ingridient = ingridient{0, 0, 5, -1, 8}
-var candy ingridient = ingridient{0, -1, 0, 5, 8}
+var sprinkles ingredient = ingredient{2, 0, -2, 0, 3}
+var butterscotch ingredient = ingredient{0, 5, -3, 0, 3}
+var chocolate ingredient = ingredient{0, 0, 5, -1, 8}
+var candy ingredient = ingredient{0, -1, 0, 5, 8}
 
 const teaspoons = 100
 

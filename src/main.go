@@ -15,9 +15,10 @@ import (
 	//	"./task12"
 	//	"./task13"
 	//	"./task14"
-		"./task15"
+	//	"./task15"
+		"./task16"
 )
 
 func main() {
-	task15.Solve()
+	task16.Solve()
 }

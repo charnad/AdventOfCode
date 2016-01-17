@@ -1,7 +1,7 @@
 package main
 
 import (
-		"./task1"
+	//	"./task1"
 	//	"./task2"
 	//	"./task3"
 	//	"./task4"
@@ -14,9 +14,10 @@ import (
 	//	"./task11"
 	//	"./task12"
 	//	"./task13"
-//	"./task14"
+	//	"./task14"
+		"./task15"
 )
 
 func main() {
-	task1.Solve()
+	task15.Solve()
 }
